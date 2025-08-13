@@ -1,0 +1,179 @@
+:root {
+  --bg: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --card: #f3f4f6;
+  --accent: #2563eb;
+  --border: #e5e7eb;
+}
+
+:root[data-theme="dark"] {
+  --bg: #0b1220;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --card: #111827;
+  --accent: #60a5fa;
+  --border: #1f2937;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Topbar */
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 1.25rem; border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; background: var(--bg); z-index: 2;
+}
+.topbar h1 { font-size: 1.4rem; margin: 0; }
+.actions { display: flex; gap: .5rem; }
+.actions button {
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  padding: .5rem .75rem; border-radius: .75rem; cursor: pointer;
+}
+.actions button:hover { filter: brightness(1.05); }
+
+/* Layout */
+.cv {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 1.25rem;
+  max-width: 980px;
+  padding: 1.25rem;
+  margin: 0 auto;
+}
+.sidebar {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+.content { display: grid; gap: 1rem; }
+
+h2 { font-size: 1.05rem; margin: .25rem 0 .5rem; }
+section { background: transparent; }
+.job, .proj {
+  border: 1px solid var(--border);
+  border-radius: .75rem;
+  padding: .75rem .9rem;
+  background: var(--card);
+}
+.job header, .proj header { margin-bottom: .25rem; }
+.job h3, .proj h3 { margin: 0 0 .25rem; font-size: 1.05rem; }
+.meta { color: var(--muted); font-size: .9rem; }
+.stack { color: var(--muted); font-size: .9rem; margin-top: .25rem; }
+
+.tags { display: flex; flex-wrap: wrap; gap: .4rem; padding-left: 0; list-style: none; }
+.tags li {
+  border: 1px solid var(--border);
+  padding: .2rem .5rem; border-radius: 999px; font-size: .9rem;
+  background: transparent;
+}
+
+.contact, .langs { padding-left: 1rem; margin: 0; }
+.profile .avatar {
+  width: 100%; aspect-ratio: 1/1; border-radius: .75rem;
+  background: linear-gradient(135deg, var(--border), transparent);
+  display: grid; place-items: center; color: var(--muted); margin-bottom: .75rem;
+}
+
+.bars label { display: flex; justify-content: space-between; font-size: .9rem; color: var(--muted); margin-top: .35rem; }
+progress {
+  width: 100%; height: 10px; appearance: none; margin-bottom: .35rem;
+  background: var(--border); border: none; border-radius: 999px; overflow: hidden;
+}
+progress::-webkit-progress-bar { background: var(--border); }
+progress::-webkit-progress-value { background: var(--accent); }
+progress::-moz-progress-bar { background: var(--accent); }
+
+.grid-2 { display: grid; gap: .8rem; grid-template-columns: 1fr 1fr; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.foot { text-align: center; color: var(--muted); padding: 1.5rem 0; }
+
+/* Responsivo */
+@media (max-width: 880px) {
+  .cv { grid-template-columns: 1fr; }
+}
+
+/* Impressão em A4 */
+@media print {
+  @page { size: A4; margin: 12mm; }
+  .topbar, .foot { display: none !important; }
+  body { background: #fff; }
+  .cv { max-width: none; padding: 0; gap: 10mm; }
+  .sidebar, .job, .proj { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  a { color: #000; text-decoration: none; }
+
+  /* -------------------- */
+/* RESPONSIVIDADE ADICIONAL */
+/* -------------------- */
+
+/* Tablets e telas médias (até 880px) */
+@media (max-width: 880px) {
+  .cv {
+    grid-template-columns: 1fr; /* coluna única */
+    gap: 1rem;
+  }
+
+  .sidebar {
+    width: 100%;
+    margin-bottom: 1rem; /* separa da seção principal */
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr; /* transforma em bloco */
+  }
+}
+
+/* Celulares (até 480px) */
+@media (max-width: 480px) {
+  /* Topbar empilhada */
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .actions {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  h1 {
+    font-size: 1.3rem;
+  }
+
+  .sidebar, .content {
+    padding: 0.8rem;
+  }
+
+  .job, .proj {
+    padding: 0.6rem 0.75rem;
+  }
+
+  .tags li {
+    font-size: 0.85rem;
+    padding: 0.2rem 0.4rem;
+  }
+
+  progress {
+    height: 8px;
+  }
+}
+
+}

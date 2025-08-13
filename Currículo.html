@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Currículo — Seu Nome</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Seu Nome Completo</h1>
+    <div class="actions">
+      <button id="themeToggle" aria-label="Alternar tema">🌓 Tema</button>
+      <button id="printBtn" aria-label="Imprimir currículo">🖨️ Imprimir PDF</button>
+    </div>
+  </header>
+
+  <main class="cv">
+    <aside class="sidebar">
+      <section class="profile">
+        <div class="avatar" aria-hidden="true">Foto</div>
+        <h2>Contato</h2>
+        <ul class="contact">
+          <li>📞 (00) 00000-0000</li>
+          <li>📧 voce@email.com</li>
+          <li>🌐 linkedin.com/in/seu-usuario</li>
+          <li>💻 github.com/seu-usuario</li>
+          <li>📍 Sua cidade — BR</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Habilidades</h2>
+        <ul class="tags">
+          <li>HTML5</li><li>CSS3</li><li>JavaScript</li>
+          <li>Git</li><li>Responsive Design</li>
+        </ul>
+        <div class="bars">
+          <label>HTML <span>90%</span></label>
+          <progress max="100" value="90"></progress>
+          <label>CSS <span>80%</span></label>
+          <progress max="100" value="80"></progress>
+          <label>JS <span>70%</span></label>
+          <progress max="100" value="70"></progress>
+        </div>
+      </section>
+
+      <section>
+        <h2>Idiomas</h2>
+        <ul class="langs">
+          <li>Português — Nativo</li>
+          <li>Inglês — Intermediário</li>
+        </ul>
+      </section>
+    </aside>
+
+    <section class="content">
+      <section>
+        <h2>Resumo</h2>
+        <p>
+          Profissional focado em desenvolvimento front-end, com experiência em
+          criação de interfaces responsivas, acessíveis e performáticas.
+          Apaixonado por aprender e colaborar em times ágeis.
+        </p>
+      </section>
+
+      <section>
+        <h2>Experiência</h2>
+
+        <article class="job">
+          <header>
+            <h3>Desenvolvedor Front-end — Empresa X</h3>
+            <span class="meta">Jan 2023 — Atual · Remoto</span>
+          </header>
+          <ul>
+            <li>Criação de componentes reutilizáveis e acessíveis.</li>
+            <li>Melhoria de performance (Lighthouse 95+).</li>
+            <li>Integração com APIs REST e versionamento com Git.</li>
+          </ul>
+          <div class="stack">React · Vite · Tailwind · REST</div>
+        </article>
+
+        <article class="job">
+          <header>
+            <h3>Estagiário de TI — Empresa Y</h3>
+            <span class="meta">Jul 2022 — Dez 2022 · Presencial</span>
+          </header>
+          <ul>
+            <li>Manutenção de páginas e correção de bugs.</li>
+            <li>Automação de tarefas com JavaScript.</li>
+          </ul>
+          <div class="stack">HTML · CSS · JS · Git</div>
+        </article>
+      </section>
+
+      <section>
+        <h2>Projetos</h2>
+        <article class="proj">
+          <h3>Portfólio Pessoal</h3>
+          <p>Site responsivo com animações suaves e foco em acessibilidade.</p>
+          <a href="#" target="_blank" rel="noopener">Visitar</a>
+        </article>
+        <article class="proj">
+          <h3>To-Do App</h3>
+          <p>Lista de tarefas com armazenamento local e filtros.</p>
+          <a href="#" target="_blank" rel="noopener">GitHub</a>
+        </article>
+      </section>
+
+      <section class="grid-2">
+        <div>
+          <h2>Formação</h2>
+          <p><strong>Tecnólogo em ADS</strong> — Faculdade Z (2021–2023)</p>
+        </div>
+        <div>
+          <h2>Certificações</h2>
+          <ul>
+            <li>HTML/CSS Avançado — Plataforma A</li>
+            <li>JavaScript — Plataforma B</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Interesses</h2>
+        <ul class="tags">
+          <li>UI/UX</li><li>Performance</li><li>Acessibilidade</li><li>Open Source</li>
+        </ul>
+      </section>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <small>© Seu Nome — Atualize com o ano atual</small>
+  </footer>
+
+  <script src="script.js"></script>
+  
+  <script type="text/javascript">
+    (function (l) {
+      if (l.search[1] === "/") {
+        var decoded = l.search
+          .slice(1)
+          .split("&")
+          .map(function (s) {
+            return s.replace(/~and~/g, "&");
+          })
+          .join("?");
+        window.history.replaceState(
+          null,
+          null,
+          l.pathname.slice(0, -1) + decoded + l.hash
+        );
+      }
+    })(window.location);
+  </script>
+</body>
+</html>
